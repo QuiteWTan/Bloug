@@ -1,22 +1,51 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes,Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes,Route, createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom';
 import './index.css'
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/Register';
+import RegisterPage from './pages/RegisterPage';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const Layout = () => {
+    return(
+      <>
+        <Navbar/>
+        <Outlet/>
+        <Footer/>
+      </>
+    )
+  }
+
+  const route = createBrowserRouter([
+    {
+      path:'/',
+      element: <Layout/>,
+      children:[
+        {
+          path:'/',
+          element: <HomePage/>,
+        }
+      ]
+    },
+    {
+      path:'/login',
+      element: <LoginPage/>
+    },
+    {
+      path:'/register',
+      element: <RegisterPage/>
+    },
+  ])
+
+
 
   return (
-    <Router>
-      <Routes>
-        <Route exact path='/' element={<HomePage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/register' element={<RegisterPage/>}/>
-      </Routes>
-    </Router>
+    <div>
+      <RouterProvider router={route}/>
+    </div>
   )
 }
 

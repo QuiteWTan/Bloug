@@ -20,13 +20,16 @@ export default {
 
         'feat': 'minmax(300px, 500px)',
         'feat1': 'repeat(4, minmax(150px, 250px))',
-        'cart1': 'minmax(200px, 750px) minmax(100px, 350px)',
+        'footer': 'repeat(4,minmax(0, 280px))',
         'stretch' : 'minmax(300px, 1200px)'
       },
       gridTemplateRows: {
         
-        'feat1': 'repeat(2, minmax(160px, 300px))',
-        'feat2': 'repeat(auto-fit, minmax(200px, 1fr))',
+        'feat1': 'repeat(2, minmax(160px, 240px))',
+        'feat2': 'repeat(2, minmax(160px, 270px))',
+        'feat3': 'repeat(3, minmax(160px, 285px))',
+        'feat4': 'repeat(4, minmax(160px, 285px))',
+        'feat5': 'repeat(6, minmax(160px, 300px))',
         'auto' : 'grid-auto-rows: auto'
       },
       colors: {
