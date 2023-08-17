@@ -6,6 +6,8 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import Footer from './components/Footer';
+import SingleBlogPage from './pages/SingleBlogPage';
+import CreatePost from './pages/CreatePost';
 
 function App() {
 
@@ -27,7 +29,15 @@ function App() {
         {
           path:'/',
           element: <HomePage/>,
-        }
+        },
+        {
+          path:'/singleblog',
+          element: <SingleBlogPage/>,
+        },
+        {
+          path:'/createblog',
+          element: <CreatePost/>,
+        },
       ]
     },
     {

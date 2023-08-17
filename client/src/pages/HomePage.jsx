@@ -51,7 +51,7 @@ const HomePage = () => {
                                         <h1 className={`py-2 ${index == 0 ? 'text-3xl max-w-[450px]' : 'text-md max-w-[200px]'}`}>{post.title}</h1>
                                         <h1 className="font-bold font-poppins text-gray-100">Category </h1>
                                     </div>
-                                    <button className="w-fit flex items-center justify-center p-2 rounded-full border-2 border-white"><box-icon name='arrow-back' rotate={180} color='white' size='20px'></box-icon></button>
+                                    <button className="w-fit flex items-center justify-center p-2 rounded-full border-2 border-white hover:pl-6 transition-all duration-300"><box-icon name='arrow-back' rotate={180} color='white' size='20px'></box-icon></button>
                                 </div>
                             </div>   
                         ))
@@ -92,10 +92,10 @@ const HomePage = () => {
                                         <h1 className="text-md px-2 lg:px-4 py-2 text-center bg-primary text-white absolute top-[50%] left-[50%] w-1/2 translate-x[-50%] translate-y-[-50%]">Category</h1>
                                         <h1 className="font-bold font-poppins text-gray-500 text-sm"> 11-09-2023 </h1>
 
-                                        <h1 className={`font-bold pb-2 ${index == 0 ? 'text-xl md:text-2xl' : 'text-md'}`}>{post.title}</h1>
+                                        <h1 className={`font-bold pb-2 ${index == 0 ? 'text-xl md:text-2xl' : 'text-sm'}`}>{post.title}</h1>
                                         <p className={`${index == 0 ? 'text-md' : ''}`}>{index == 0 ?  post.desc : ''}</p>
                                     </div>
-                                    <button className="absolute bottom-2 right-2 rounded-full p-1 flex justify-center items-center border-black border-2"><box-icon name='arrow-back' rotate={180} size='20px'></box-icon></button>
+                                    <button className={`${index == 0 ? 'py-2' : 'py-[3px]'} absolute bottom-0 left-0 px-4 border-primary text-primary border-2 w-fit rounded-sm hover:bg-gray-100 transition-all duration-300`}>Read More</button>
 
                                 </div>
                             </div>   

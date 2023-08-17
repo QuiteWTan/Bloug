@@ -30,6 +30,9 @@ export default {
         'feat3': 'repeat(3, minmax(160px, 285px))',
         'feat4': 'repeat(4, minmax(160px, 285px))',
         'feat5': 'repeat(6, minmax(160px, 300px))',
+        'relatedPost': 'repeat(2, minmax(160px, 400px))',
+        'SingleBlog': 'minmax(0px, 400px)',
+        'SingleBlogHP': 'repeat(2, minmax(0px, 450px))',
         'auto' : 'grid-auto-rows: auto'
       },
       colors: {
