@@ -25,7 +25,21 @@ export const Register = (req, res) => {
 };
 
 export const Login = (req,res) => {
-    
+    const loginQuery = "select * from users where username = ? "
+     db.query(loginQuery,[req.body.username], (err,data) => {
+      if(err) return res.json(err)   
+      if(data.length == 0) return res.status(404).json("Username Not Found") 
+      
+      const validPasswordCheck = bcrypt.compareSync(req.body.password, data[0].password)
+
+      if(!validPasswordCheck) return res.status(400).json("Wrong username or password")
+
+      const token = jwt.sign({id:data[0].id},"jwtkey");
+      const {password, ...other} = data[0]
+      res.cookie("access_token", token,{
+        httpOnly: true
+      }).status(202).json(other)
+    })
 }
 
 export const Logout = (req,res) => {

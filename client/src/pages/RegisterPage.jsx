@@ -25,17 +25,7 @@ const RegisterPage = () => {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
-      const notLogin = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
+
 
     const ValidateRegisterInput= (e) => {
         e.preventDefault()
@@ -167,7 +157,6 @@ const RegisterPage = () => {
                         onClick={() => {
                             setRemember(!Remember);
                             setInput({ ...Input, terms: Remember});
-                            console.log(Remember)
                         }}>
                         <box-icon name='check' size='20px' color='white'></box-icon>
                     </div>
