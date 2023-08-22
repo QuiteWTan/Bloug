@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContextState } from "../context/authContext";
 
 
 const LoginPage = () => {
@@ -12,8 +13,10 @@ const LoginPage = () => {
         password:'',
         rememberMe : false,
     })
-
-    const Login = Swal.mixin({
+    
+    const { User, Login } = AuthContextState()
+    console.log(User)
+    const SuccessLogin = Swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
@@ -57,21 +60,24 @@ const LoginPage = () => {
             username: Input.username,
             password: Input.password,
         };
-        console.log(dataToSend)
         try{
-            const Res = await axios.post("/api/auth/login",dataToSend)
-            console.log(Res);
-            if(Res.status <= 400){
-                Login.fire({
+            const Res = await Login(dataToSend)
+            if(Res.status < 300){
+                SuccessLogin.fire({
                     icon: 'success',
-                    title: 'Account has been created'
+                    title: 'Login Successful!'
                   })
                     setTimeout(() => {
-                        navigate("/login")
+                        navigate("/")
                     }, 3000);
             }
         }catch(err){
-            console.log(err)
+            if(err){
+                SuccessLogin.fire({
+                    icon: 'error',
+                    title: 'Username or password is incorrect'
+                  })
+            }
         }
 
     }
@@ -122,7 +128,9 @@ const LoginPage = () => {
                     </div>
                     <label htmlFor="remember" className="text-sm ml-2 font-poppins">Remember me</label>
                 </div>
+                <h1 className="text-poppins absolute bottom-[-70%] text-sm text-red-500" id="warningLogin"></h1>
                 <button type="submit" className="bg-primary text-white rounded-sm py-2 my-4 w-full text-lg opacity-80 hover:opacity-100 transition-all duration-300">Login</button>
+                <Link to={"/register"} className="text-gray-500 text-sm font-poppins underline">Don't have an Account ?</Link>
             </form>
         </div>
     )

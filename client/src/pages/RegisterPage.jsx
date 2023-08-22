@@ -163,7 +163,8 @@ const RegisterPage = () => {
                     <label htmlFor="remember" className="text-xs ml-2 font-poppins">I Agree with the <span className="text-gray-400 underline">Terms and Conditions</span></label>
                     <h1 className="text-poppins absolute bottom-[-20%] text-sm text-red-500" id="warningTerms"></h1>
                 </div>
-                <button type="submit" className="bg-primary text-white rounded-sm py-2 my-4 w-full text-lg opacity-80 hover:opacity-100 transition-all duration-300">Login</button>
+                <button type="submit" className="bg-primary text-white rounded-sm py-2 my-4 w-full text-lg opacity-80 hover:opacity-100 transition-all duration-300">Register</button>
+                <Link to={"/login"} className="text-gray-500 text-sm font-poppins underline">Have an Account ?</Link>
             </div>
         </form>
     )

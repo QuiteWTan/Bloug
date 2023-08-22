@@ -31,7 +31,7 @@ function App() {
           element: <HomePage/>,
         },
         {
-          path:'/singleblog',
+          path:'/post/:id',
           element: <SingleBlogPage/>,
         },
         {

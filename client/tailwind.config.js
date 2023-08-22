@@ -21,7 +21,8 @@ export default {
         'feat': 'minmax(300px, 500px)',
         'feat1': 'repeat(4, minmax(150px, 250px))',
         'footer': 'repeat(4,minmax(0, 280px))',
-        'stretch' : 'minmax(300px, 1200px)'
+        'stretch' : 'minmax(300px, 1200px)',
+        'feat2': 'repeat(2, minmax(280px, 500px))'
       },
       gridTemplateRows: {
         
